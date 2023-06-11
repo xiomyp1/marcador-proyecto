@@ -1,0 +1,30 @@
+<div class="marcador">
+    <div class="logo">
+        <img [src]="equipoLocal.logo" alt="">
+    </div>
+    <div class="puntos">
+        <span>{{puntosLocales}}</span>
+        <img src="/assets/img/NBA_Logo.svg" alt="Logo NBA">
+        <span>{{puntosVisitantes}}</span>
+    </div>
+    <div class="logo">
+        <img [src]="equipoVisitante.logo" alt="">
+    </div>
+</div>
+<div class="equipos">
+    <!-- Se le pasa a cada uno un objeto diferente -->
+        <!-- propiedad decorada con output cuando se produzca un cambio en canasta y se emita lo vamos a recoger con un metodo
+    getCanastaLocal y es obligatorio utilizar $event para recoger el parametro que viene del hijo  -->
+    <app-equipo class="equipo" 
+            [equipo]="equipoLocal"
+            (canasta)="getCanastaLocal($event)"
+            ></app-equipo> 
+    <app-equipo class="equipo" 
+            [equipo]="equipoVisitante"
+            (canasta)="getCanastaVisitantes($event)"
+            ></app-equipo>
+</div>
+<!-- equipo local va ser igual a la propiedad del padre -->
+<app-top-score [equipoLocal]="equipoLocal"
+               [equipoVisitante]="equipoVisitante">
+</app-top-score>

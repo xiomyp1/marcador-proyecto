@@ -1,0 +1,18 @@
+ <!-- clases para cada equipo se utiliza ngClass para introducir clases css con logica
+ la logica va ser que se iguale a la expression que me define de cada equipo su nombre.  -->
+ <table class="lakers" [ngClass]="equipo.nombre">
+    <!-- Vamos a tener una fila por cada jugador, Variable ngFor es global a todo el html -->
+    <tr *ngFor="let jugador of equipo.jugadores">
+        <!-- Pintamos de cada jugador su nombre  -->
+        <td>{{jugador.nombre}}</td>
+        <td>
+        <!-- Cada uno de los botones se ponen evento click que iguale al setCanasta que recibe number con los puntos
+        en tiros libres es un punto 1, y el nombre del jugador  -->
+        <button (click)="setCanasta(1, jugador.nombre)">Libre</button>
+        <button (click)="setCanasta(2, jugador.nombre)">Doble</button>
+        <button (click)="setCanasta(3, jugador.nombre)">Triple</button>
+        </td> 
+    </tr>
+
+
+</table>
